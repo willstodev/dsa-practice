@@ -1,11 +1,14 @@
 # DSA Practice
 
-My personal practice of Data Structures & Algorithms in Python — one file per topic, solved by me while learning.
+My personal practice of Data Structures & Algorithms in Python — solved by me while learning.
 
 ## Structure
 
 ```
-src/        # practice files, one per topic: NN_topic_name.py
+src/
+  NN_topic_name.py                  # older: one file per topic
+  NN_topic_name/                    # current: one folder per session
+    lcNNNN_problem_name.py          #   one file per LeetCode problem
 README.md   # overview + progress
 CLAUDE.md   # concept notes + rules
 ```
@@ -14,6 +17,7 @@ CLAUDE.md   # concept notes + rules
 
 ```bash
 python3 src/01_arrays_hashing.py
+python3 src/NN_topic_name/lcNNNN_problem_name.py
 ```
 
 Each file runs its own `assert` tests and prints ✅ when they pass.

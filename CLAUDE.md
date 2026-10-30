@@ -4,20 +4,22 @@ This repo is my personal DSA (Data Structures & Algorithms) practice folder, wri
 
 ## Rules (read first)
 
-- **Never edit, refactor, "fix" or reformat my practice files** (`src/NN_topic.py`). They are for learning — mistakes included. If you spot a bug, *tell me* in chat instead of changing the code.
+- **Never edit, refactor, "fix" or reformat my practice files** (`src/NN_topic.py` and `src/NN_topic/lcNNNN_*.py`). They are for learning — mistakes included. If you spot a bug, *tell me* in chat instead of changing the code.
 - Only touch documentation files: `README.md` and `CLAUDE.md`.
-- Don't create new practice files or solutions unless I explicitly ask.
+- Don't create new practice files or solutions unless I explicitly ask. `/new-exercise` creates empty stubs only (never solutions).
 - After I add a new practice file, run the `/update-docs` skill to document it.
 - Follow `.editorconfig`: 4-space indent, LF line endings, UTF-8, final newline.
 
 ## Conventions in my practice files
 
-- Practice files live in `src/`.
-- File name: `NN_topic_name.py` (two-digit order + topic in snake_case), e.g. `01_arrays_hashing.py`.
+- Practice files live in `src/`. Two layouts, both numbered `NN` (two-digit order + topic in snake_case):
+    - **Flat topic file** (older): `src/NN_topic_name.py`, several problems in one file, e.g. `01_arrays_hashing.py`.
+    - **Session folder** (current, created by `/new-exercise`): `src/NN_topic_name/`, one file per LeetCode problem named `lcNNNN_problem_name.py` (4-digit number + snake_case title), e.g. `src/02_two_pointers/lc0125_valid_palindrome.py`.
+- Session-folder files start with a docstring (problem, constraints, target complexity, "think about") and a stub body `raise NotImplementedError` until I solve it.
 - One function per problem, with type hints (`list[int]`, `dict[int, int]`, ...).
 - Alternative solutions use a `_v2`, `_v3` suffix.
 - Tests live in `if __name__ == "__main__":` as plain `assert`s plus a `print("... ✅")`.
-- Run a file with: `python3 src/NN_topic_name.py`
+- Run a file with: `python3 src/NN_topic_name.py` or `python3 src/NN_topic_name/lcNNNN_problem_name.py`
 
 ## Concepts learned
 

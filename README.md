@@ -19,13 +19,14 @@ CLAUDE.md   # concept notes + rules
 python3 src/01_arrays_hashing/lc0001_two_sum.py
 ```
 
-Each file runs its own `assert` tests and prints ✅ when they pass.
+Each file runs its own tests, Jest-style: one `✓ description` line per case, then ✅ when they all pass.
 
 ## Progress
 
 | # | Topic | File | Problems | Key concept |
 |---|---|---|---|---|
 | 01 | Arrays & Hashing | [`src/01_arrays_hashing/`](src/01_arrays_hashing/) | Contains Duplicate, Two Sum | Hash set / hash map for O(1) lookups → O(n) solutions |
+| 02 | Two Pointers | [`src/02_two_pointers/`](src/02_two_pointers/) | Valid Palindrome | Compare a string with its reverse after cleaning it |
 
 ## Notes
 

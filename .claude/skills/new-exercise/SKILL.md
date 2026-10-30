@@ -23,7 +23,8 @@ Wait for my answer. Do not guess the problems.
 ## 3. File template
 
 ```python
-"""LeetCode NNNN · Problem Title (Difficulty).
+"""
+LeetCode NNNN · Problem Title (Difficulty).
 
 Session: DSA NN · Topic
 Link: https://leetcode.com/problems/<slug>/
@@ -43,16 +44,23 @@ def function_name(arg: type) -> return_type:
     raise NotImplementedError
 
 if __name__ == "__main__":
-    assert function_name(...) == ...
-    assert function_name(...) == ...
-    assert function_name(...) == ...  # edge case
+    def it(description: str, actual: object, expected: object) -> None:
+        assert actual == expected, f"✗ {description}: expected {expected!r}, got {actual!r}"
+        print(f"  ✓ {description}")
+
+    print("function_name")
+    it("<what this case checks, e.g. returns the indices of the pair>", function_name(...), ...)
+    it("<what this case checks>", function_name(...), ...)
+    it("<edge case, e.g. handles a single element>", function_name(...), ...)
     print("function_name ✅")
 ```
 
 Rules for the template:
 - Function name and signature match LeetCode, in snake_case, fully typed (`list[int]`, `dict[str, int]`, `str | None`). Pylance strict friendly.
 - Body is only `raise NotImplementedError`.
-- 2 to 4 asserts from the LeetCode examples plus 1 edge case. Expected values must be correct.
+- Tests are Jest-style: a small `it(description, actual, expected)` helper inside the `__main__` block, then one `it(...)` per case. 2 to 4 cases from the LeetCode examples plus 1 edge case. Expected values must be correct.
+- Each description says what the case checks in plain words (`"ignores case and punctuation"`, `"counts digits as alphanumeric"`), not just the input. No hints about the solution.
+- Output on success: the function name, one `✓ description` line per case, then `function_name ✅`. On failure the `AssertionError` shows the description, expected and actual values.
 - Follow `.editorconfig`: 4-space indent, LF, UTF-8, final newline.
 - Everything in English.
 

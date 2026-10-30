@@ -18,7 +18,7 @@ This repo is my personal DSA (Data Structures & Algorithms) practice folder, wri
 - Session-folder files start with a docstring (problem, constraints, target complexity, "think about") and a stub body `raise NotImplementedError` until I solve it.
 - One function per problem, with type hints (`list[int]`, `dict[int, int]`, ...).
 - Alternative solutions use a `_v2`, `_v3` suffix.
-- Tests live in `if __name__ == "__main__":` as plain `assert`s plus a `print("... ✅")`.
+- Tests live in `if __name__ == "__main__":`, Jest-style: a small `it(description, actual, expected)` helper that asserts and prints `✓ description`, one `it(...)` per case, then `print("... ✅")`.
 - Run a file with: `python3 src/NN_topic_name.py` or `python3 src/NN_topic_name/lcNNNN_problem_name.py`
 
 ## Concepts learned
@@ -37,3 +37,18 @@ This repo is my personal DSA (Data Structures & Algorithms) practice folder, wri
 - "Have I seen this before?" → `set`.
 - "Where did I see it?" / need an index → `dict` (value → index).
 - Check the dict *before* inserting the current element, so an element is never paired with itself.
+
+### 02 — Two Pointers (`src/02_two_pointers/`)
+
+**Key idea:** walk the sequence from both ends toward the middle; a palindrome check compares the start against the end, step by step.
+
+| Problem | Approach | Time | Space |
+|---|---|---|---|
+| LC 0125 `is_palindrome` | Clean with `re.sub(r"[^a-zA-Z0-9]", "", s).lower()`, build the reversed string with a backward index (`res += txt[i]`), then compare `txt == res`. | O(n)* | O(n) |
+
+\* `str +=` in a loop is O(n²) in theory; CPython usually optimizes it to O(n) in practice.
+
+**Patterns to remember:**
+- Normalize first (filter non-alphanumeric + lowercase), then compare.
+- `[^a-zA-Z0-9]` keeps digits too — `"0P"` is not a palindrome.
+- Reversed copy = O(n) extra space; the O(1) target needs two indices (`left`, `right`) compared in place.

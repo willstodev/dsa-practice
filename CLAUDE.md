@@ -45,10 +45,13 @@ This repo is my personal DSA (Data Structures & Algorithms) practice folder, wri
 | Problem | Approach | Time | Space |
 |---|---|---|---|
 | LC 0125 `is_palindrome` | Clean with `re.sub(r"[^a-zA-Z0-9]", "", s).lower()`, build the reversed string with a backward index (`res += txt[i]`), then compare `txt == res`. | O(n)* | O(n) |
+| LC 0125 `is_palindrome_v2` | Two pointers `l`/`r` on the original string: skip non-alphanumerics with `isalnum()` + `continue`, compare `s[l].lower() != s[r].lower()`, move both inward. No cleaned copy. | O(n) | O(1) |
 
 \* `str +=` in a loop is O(n²) in theory; CPython usually optimizes it to O(n) in practice.
 
 **Patterns to remember:**
 - Normalize first (filter non-alphanumeric + lowercase), then compare.
 - `[^a-zA-Z0-9]` keeps digits too — `"0P"` is not a palindrome.
-- Reversed copy = O(n) extra space; the O(1) target needs two indices (`left`, `right`) compared in place.
+- Reversed copy = O(n) extra space; the O(1) version compares two indices (`l`, `r`) in place.
+- Skip-and-`continue` keeps the loop simple: move only the pointer that's on junk, then re-check `l < r`.
+- Early exit: return `False` on the first mismatch.

@@ -39,10 +39,8 @@ Think about:
 - <one question that points at the pattern, no answer>
 """
 
-
 def function_name(arg: type) -> return_type:
     raise NotImplementedError
-
 
 if __name__ == "__main__":
     assert function_name(...) == ...

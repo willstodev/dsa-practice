@@ -16,8 +16,7 @@ CLAUDE.md   # concept notes + rules
 ## How to run
 
 ```bash
-python3 src/01_arrays_hashing.py
-python3 src/NN_topic_name/lcNNNN_problem_name.py
+python3 src/01_arrays_hashing/lc0001_two_sum.py
 ```
 
 Each file runs its own `assert` tests and prints ✅ when they pass.
@@ -26,7 +25,7 @@ Each file runs its own `assert` tests and prints ✅ when they pass.
 
 | # | Topic | File | Problems | Key concept |
 |---|---|---|---|---|
-| 01 | Arrays & Hashing | [`src/01_arrays_hashing.py`](src/01_arrays_hashing.py) | Contains Duplicate, Two Sum | Hash set / hash map for O(1) lookups → O(n) solutions |
+| 01 | Arrays & Hashing | [`src/01_arrays_hashing/`](src/01_arrays_hashing/) | Contains Duplicate, Two Sum | Hash set / hash map for O(1) lookups → O(n) solutions |
 
 ## Notes
 

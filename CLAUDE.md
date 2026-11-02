@@ -40,12 +40,13 @@ This repo is my personal DSA (Data Structures & Algorithms) practice folder, wri
 
 ### 02 — Two Pointers (`src/02_two_pointers/`)
 
-**Key idea:** walk the sequence from both ends toward the middle; a palindrome check compares the start against the end, step by step.
+**Key idea:** walk the sequence from both ends toward the middle; a palindrome check compares the start against the end, and on a sorted list the sum of the two ends tells you which pointer to move.
 
 | Problem | Approach | Time | Space |
 |---|---|---|---|
 | LC 0125 `is_palindrome` | Clean with `re.sub(r"[^a-zA-Z0-9]", "", s).lower()`, build the reversed string with a backward index (`res += txt[i]`), then compare `txt == res`. | O(n)* | O(n) |
 | LC 0125 `is_palindrome_v2` | Two pointers `l`/`r` on the original string: skip non-alphanumerics with `isalnum()` + `continue`, compare `s[l].lower() != s[r].lower()`, move both inward. No cleaned copy. | O(n) | O(1) |
+| LC 0167 `two_sum` | Pointers `left`/`right` at both ends of the sorted list; if the sum equals `target` return `[left + 1, right + 1]` (1-indexed), if it's too big move `right -= 1`, if too small move `left += 1`. | O(n) | O(1) |
 
 \* `str +=` in a loop is O(n²) in theory; CPython usually optimizes it to O(n) in practice.
 
@@ -55,3 +56,5 @@ This repo is my personal DSA (Data Structures & Algorithms) practice folder, wri
 - Reversed copy = O(n) extra space; the O(1) version compares two indices (`l`, `r`) in place.
 - Skip-and-`continue` keeps the loop simple: move only the pointer that's on junk, then re-check `l < r`.
 - Early exit: return `False` on the first mismatch.
+- Sorted input + pair sum → two pointers instead of a hash map: sum too big → `right -= 1`, too small → `left += 1`. O(1) space vs O(n) for LC 0001.
+- Watch the indexing the problem asks for (LC 0167 is 1-indexed → `+ 1`).

@@ -27,6 +27,7 @@ Each file runs its own tests, Jest-style: one `✓ description` line per case, t
 |---|---|---|---|---|
 | 01 | Arrays & Hashing | [`src/01_arrays_hashing/`](src/01_arrays_hashing/) | Contains Duplicate, Two Sum | Hash set / hash map for O(1) lookups → O(n) solutions |
 | 02 | Two Pointers | [`src/02_two_pointers/`](src/02_two_pointers/) | Valid Palindrome, Two Sum II | Left/right pointers moving inward → O(n) time, O(1) space |
+| 03 | Sliding Window | [`src/03_sliding_window/`](src/03_sliding_window/) | Best Time to Buy and Sell Stock | Window `left`/`right` moving forward in one pass → O(n) time, O(1) space |
 
 ## Notes
 

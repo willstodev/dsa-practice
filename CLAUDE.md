@@ -58,3 +58,16 @@ This repo is my personal DSA (Data Structures & Algorithms) practice folder, wri
 - Early exit: return `False` on the first mismatch.
 - Sorted input + pair sum → two pointers instead of a hash map: sum too big → `right -= 1`, too small → `left += 1`. O(1) space vs O(n) for LC 0001.
 - Watch the indexing the problem asks for (LC 0167 is 1-indexed → `+ 1`).
+
+### 03 — Sliding Window (`src/03_sliding_window/`)
+
+**Key idea:** keep a window `[left, right]` over the list and move its edges in a single pass; `left` only jumps forward when a better start appears, so each element is visited once.
+
+| Problem | Approach | Time | Space |
+|---|---|---|---|
+| LC 0121 `max_profit` | `left` = buy day, `right` = sell day (via `enumerate`). Each step updates `best = max(best, sell - buy)`; if `sell <= buy`, a new lowest price was found → move `left = right`. | O(n) | O(1) |
+
+**Patterns to remember:**
+- "Best pair where one comes before the other" → keep the best *start* so far and test every *end* against it.
+- Move `left` straight to `right` when the current price is a new low — no earlier day can beat it.
+- Start `best = 0` so "no profit possible" naturally returns 0.
